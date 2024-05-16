@@ -1,5 +1,12 @@
+import { Request, Response } from "express-serve-static-core";
 
-let data = [
+interface CartData {
+  product_name: string;
+  price: number;
+  product_id: number;
+}
+
+let data: CartData[] = [
     {
       product_id: 1,
       product_name: "Product 1",
@@ -19,14 +26,14 @@ let data = [
 ];
 
 
-let getAllProducts = (req, res) => {
+let getAllProducts = (req: Request, res: Response) => {
     res.json({
         data
     });
 }
 
-let getProductDetails = (req, res) => {
-    let id = req.params.id;
+let getProductDetails = (req: Request, res: Response) => {
+    let id: number = +req.params.id;
     let product = data.find((item) => item.product_id == id);
     res.json(product);
 }

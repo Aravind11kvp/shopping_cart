@@ -1,4 +1,13 @@
-let data = [
+import { Request, Response } from "express-serve-static-core";
+
+interface CartData {
+  product_name: string;
+  price: number;
+  quantity: number;
+  product_id: number;
+}
+
+let data: CartData[] = [
     {
       product_id: 1,
       product_name: "Product 1",
@@ -19,21 +28,21 @@ let data = [
     },
 ];
 
-let getAllProducts = (req, res) => {
+let getAllProducts = (req: Request, res: Response) => {
     res.json({
         data
     });
 }
 
-let addProduct = (req, res) => {
+let addProduct = (req: Request, res: Response) => {
     res.json(req.body);
 }
 
-let modifyProduct = (req, res) => {
+let modifyProduct = (req: Request, res: Response) => {
     res.json(req.body);
 }
 
-let deleteProduct = (req, res) => {
+let deleteProduct = (req: Request, res: Response) => {
     res.json({message: "Record Succesfully Deleted"});
 }
 
